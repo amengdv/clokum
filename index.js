@@ -20,6 +20,32 @@
 		const margin = 15;
 		ctx.clearRect(0, 0, 400, 400);
 
+		// HOUR MARKS
+		ctx.save();
+		ctx.translate(200, 200);
+		for (let i = 0; i < 12; i++) {
+			ctx.beginPath();
+			ctx.rotate(Math.PI / 6);
+			ctx.moveTo(160, 0);
+			ctx.lineTo(200, 0);
+			ctx.stroke();
+		}
+		ctx.restore();
+
+		// MINUTE MARKS
+		ctx.save();
+		ctx.translate(200, 200);
+		ctx.lineWidth = 5;
+		for (let i = 0; i < 60; i++) {
+			if (i % 5 !== 0) {
+				ctx.beginPath();
+				ctx.moveTo(180, 0);
+				ctx.lineTo(200, 0);
+				ctx.stroke();
+			}
+			ctx.rotate(Math.PI / 30);
+		}
+		ctx.restore();
 
 		ctx.save();
 		ctx.translate(200, 200);
